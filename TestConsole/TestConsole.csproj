@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DigitalJournal.Moodle.Domain\DigitalJournal.Moodle.Domain.csproj" />
+      <ProjectReference Include="..\DigitalJournal.Moodle.Services\DigitalJournal.Moodle.Services.csproj" />
+    </ItemGroup>
+
+</Project>
