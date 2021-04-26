@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoodleApiWrapper", "MoodleApiWrapper\MoodleApiWrapper.csproj", "{CC35F906-01C8-42C2-8E51-308F7475DE8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console", "console\console.csproj", "{7BAD5978-CA7F-429A-8C9F-BC680361C16A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoodleApiWrapper.Tests", "MoodleApiWrapper.Tests\MoodleApiWrapper.Tests.csproj", "{A9F7B812-FA65-44BC-867B-9BB92EF4F824}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJournal.Moodle.Services", "DigitalJournal.Moodle.Services\DigitalJournal.Moodle.Services.csproj", "{FD09700F-0733-45ED-A10E-37D5CB88900C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJournal.Moodle.Domain", "DigitalJournal.Moodle.Domain\DigitalJournal.Moodle.Domain.csproj", "{A1287B9F-535D-4100-B2D8-FDC30B44ED5D}"
@@ -25,14 +21,6 @@ Global
 		{CC35F906-01C8-42C2-8E51-308F7475DE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC35F906-01C8-42C2-8E51-308F7475DE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC35F906-01C8-42C2-8E51-308F7475DE8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BAD5978-CA7F-429A-8C9F-BC680361C16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BAD5978-CA7F-429A-8C9F-BC680361C16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BAD5978-CA7F-429A-8C9F-BC680361C16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BAD5978-CA7F-429A-8C9F-BC680361C16A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9F7B812-FA65-44BC-867B-9BB92EF4F824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9F7B812-FA65-44BC-867B-9BB92EF4F824}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9F7B812-FA65-44BC-867B-9BB92EF4F824}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9F7B812-FA65-44BC-867B-9BB92EF4F824}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD09700F-0733-45ED-A10E-37D5CB88900C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FD09700F-0733-45ED-A10E-37D5CB88900C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD09700F-0733-45ED-A10E-37D5CB88900C}.Release|Any CPU.ActiveCfg = Release|Any CPU

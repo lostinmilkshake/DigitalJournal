@@ -11,8 +11,8 @@ namespace DigitalJournal.Moodle.Services
         public MoodleHttpClientService()
         {
             // TODO: Move to appsettings
-            var token = "ENTER_TOKEN";
-            MoodleUrl = $"http://localhost:8888/moodle310/webservice/rest/server.php?wstoken={token}";
+            var token = "293714ef1aa568f9e9d295b34db40c23";
+            MoodleUrl = $"http://localhost:80/webservice/rest/server.php?wstoken={token}&moodlewsrestformat=json";
             MoodleHttpClient = new HttpClient {BaseAddress = new Uri(MoodleUrl), };
         }
     }
