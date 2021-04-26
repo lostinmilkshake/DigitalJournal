@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using DigitalJournal.Moodle.Domain;
+using DigitalJournal.Moodle.Services.Interfaces;
 
 namespace DigitalJournal.Moodle.Services
 {
-    public class CourseService
+    public class CourseService : ICoursesService
     {
         private readonly MoodleHttpClientService _moodleHttpClientService;
         private readonly JsonSerializerOptions _jsonSerializerOptions;
