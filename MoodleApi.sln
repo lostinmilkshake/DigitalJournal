@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoodleApiWrapper", "MoodleApiWrapper\MoodleApiWrapper.csproj", "{CC35F906-01C8-42C2-8E51-308F7475DE8D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJournal.Moodle.Services", "DigitalJournal.Moodle.Services\DigitalJournal.Moodle.Services.csproj", "{FD09700F-0733-45ED-A10E-37D5CB88900C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJournal.Moodle.Domain", "DigitalJournal.Moodle.Domain\DigitalJournal.Moodle.Domain.csproj", "{A1287B9F-535D-4100-B2D8-FDC30B44ED5D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{33B254C6-6BC6-413A-89AB-F070506F8E18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJournal.Services", "DigitalJournal.Services\DigitalJournal.Services.csproj", "{E4F73DAA-5C49-43FF-A7E6-2EB333B13620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJournal.Domain", "DigitalJournal.Domain\DigitalJournal.Domain.csproj", "{98F48111-3ABF-4EC5-A311-FCB59836E79C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MoodleAPIWrapper", "MoodleAPIWrapper", "{E8AF2137-266E-4F06-9A26-31AB1E6D9A43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJournal.Web", "DigitalJournal.Web\DigitalJournal.Web.csproj", "{54323EDE-4474-42A6-ADBC-DC6A25BEB6F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC35F906-01C8-42C2-8E51-308F7475DE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC35F906-01C8-42C2-8E51-308F7475DE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC35F906-01C8-42C2-8E51-308F7475DE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC35F906-01C8-42C2-8E51-308F7475DE8D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD09700F-0733-45ED-A10E-37D5CB88900C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FD09700F-0733-45ED-A10E-37D5CB88900C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD09700F-0733-45ED-A10E-37D5CB88900C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,11 +35,27 @@ Global
 		{33B254C6-6BC6-413A-89AB-F070506F8E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33B254C6-6BC6-413A-89AB-F070506F8E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33B254C6-6BC6-413A-89AB-F070506F8E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F73DAA-5C49-43FF-A7E6-2EB333B13620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F73DAA-5C49-43FF-A7E6-2EB333B13620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F73DAA-5C49-43FF-A7E6-2EB333B13620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F73DAA-5C49-43FF-A7E6-2EB333B13620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F48111-3ABF-4EC5-A311-FCB59836E79C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F48111-3ABF-4EC5-A311-FCB59836E79C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F48111-3ABF-4EC5-A311-FCB59836E79C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F48111-3ABF-4EC5-A311-FCB59836E79C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54323EDE-4474-42A6-ADBC-DC6A25BEB6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54323EDE-4474-42A6-ADBC-DC6A25BEB6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54323EDE-4474-42A6-ADBC-DC6A25BEB6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54323EDE-4474-42A6-ADBC-DC6A25BEB6F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1E675BB6-E7C0-4BB6-8EA4-C01D9A1105D1}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1287B9F-535D-4100-B2D8-FDC30B44ED5D} = {E8AF2137-266E-4F06-9A26-31AB1E6D9A43}
+		{FD09700F-0733-45ED-A10E-37D5CB88900C} = {E8AF2137-266E-4F06-9A26-31AB1E6D9A43}
 	EndGlobalSection
 EndGlobal

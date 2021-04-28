@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using DigitalJournal.Moodle.Domain;
+using DigitalJournal.Moodle.Domain.Enum;
 using DigitalJournal.Moodle.Services.Interfaces;
 
 namespace DigitalJournal.Moodle.Services
