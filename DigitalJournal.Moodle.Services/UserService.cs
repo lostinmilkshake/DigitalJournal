@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using DigitalJournal.Moodle.Domain;
+using DigitalJournal.Moodle.Services.Interfaces;
 
 namespace DigitalJournal.Moodle.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly MoodleHttpClientService _moodleHttpClientService;
         private readonly JsonSerializerOptions _jsonSerializerOptions;
@@ -20,12 +22,12 @@ namespace DigitalJournal.Moodle.Services
             };
         }
 
-        public async Task<List<User>> GetUserAsync()
+        public async Task<User> GetUserAsync(string userName)
         {
-            var query = "wsfunction=core_user_get_users&moodlewsrestformat=json&criteria[0][key]=email&criteria[0][value]=demo";
-            var response = await _moodleHttpClientService.MoodleHttpClient.GetAsync(query);
+            var query = $"&wsfunction=core_user_get_users_by_field&field=username&values[0]={userName}";
+            var response = await _moodleHttpClientService.MoodleHttpClient.GetAsync(_moodleHttpClientService.MoodleUrl + query);
             var result = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<List<User>>(result);
+            return JsonSerializer.Deserialize<IEnumerable<User>>(result, _jsonSerializerOptions).First();
         }
     }
 }

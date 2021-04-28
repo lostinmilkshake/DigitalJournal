@@ -1,4 +1,4 @@
-namespace DigitalJournal.Moodle.Domain
+﻿namespace DigitalJournal.Domain
 {
     public class User
     {

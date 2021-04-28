@@ -12,6 +12,7 @@ namespace DigitalJournal.Moodle.Services
             services.AddScoped<IGradeService, GradeService>();
             services.AddScoped<IModuleService, ModuleService>();
             services.AddScoped<MoodleHttpClientService>();
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace DigitalJournal.Services
     {
         public static void AddMoodleAutoMapper(this IServiceCollection servicec)
         {
-            servicec.AddAutoMapper(typeof(MoodleModuleProfile));
+            servicec.AddAutoMapper(typeof(MoodleModuleProfile), typeof(MoodleCourseProfile), typeof(MoodleUserProfile));
         }
     }
 }

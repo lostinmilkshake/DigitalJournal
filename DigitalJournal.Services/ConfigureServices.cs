@@ -9,6 +9,7 @@ namespace DigitalJournal.Services
         {
             services.AddScoped<IModuleService, ModuleService>();
             services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }
