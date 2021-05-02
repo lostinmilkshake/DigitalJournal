@@ -7,11 +7,11 @@ namespace DigitalJournal.Web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CourseController: ControllerBase
+    public class CourseController: BaseAuthController
     {
         private readonly ICourseService _coursesService;
 
-        public CourseController(ICourseService coursesService)
+        public CourseController(IUserService userService, ICourseService coursesService) : base(userService)
         {
             _coursesService = coursesService;
         }
@@ -28,6 +28,15 @@ namespace DigitalJournal.Web.Controllers
         public async Task<IActionResult> GetUserCourses(int userId)
         {
             var courseModules = await _coursesService.GetUserCourses(userId);
+
+            return Ok(courseModules);
+        }
+
+        [HttpGet("user-courses")]
+        public async Task<IActionResult> GetUserCourses()
+        {
+            var currentUser = await GetLoggedInUser();
+            var courseModules = await _coursesService.GetUserCourses(currentUser.Id);
 
             return Ok(courseModules);
         }

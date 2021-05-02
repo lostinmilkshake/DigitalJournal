@@ -8,6 +8,16 @@ namespace DigitalJournal.Moodle.Services
 {
     public class AuthService : IAuthService
     {
+        private readonly JsonSerializerOptions _jsonSerializerOptions;
+
+        public AuthService()
+        {
+            _jsonSerializerOptions = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+        }
+        
         public async Task<AuthResponse> Login(string username, string password)
         {
             var query =
@@ -15,7 +25,7 @@ namespace DigitalJournal.Moodle.Services
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(query);
             var result = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<AuthResponse>(result);
+            return JsonSerializer.Deserialize<AuthResponse>(result, _jsonSerializerOptions);
         }
     }
 }
