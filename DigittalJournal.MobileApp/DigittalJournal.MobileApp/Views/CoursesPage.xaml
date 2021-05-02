@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DigittalJournal.MobileApp.ViewModels"  
+             xmlns:model="clr-namespace:DigitalJournal.Domain;assembly=DigitalJournal.Domain"
+             x:Class="DigittalJournal.MobileApp.Views.CoursesPage">
+        <RefreshView x:DataType="local:CoursesViewModel" Command="{Binding LoadCoursesCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <CollectionView 
+                x:Name="CoursesListView"
+                ItemsSource="{Binding Courses}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" x:DataType="model:Course">
+                        <Frame IsClippedToBounds="True"
+                                   HasShadow="True"
+                                   Padding="0"
+                                   BackgroundColor="White"
+                               CornerRadius="8"
+                               >
+                            <Frame.Margin>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                            Android="10"
+                                            iOS ="10"/>
+                            </Frame.Margin>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="15">
+                                <Label Text="{Binding FullName}" FontSize="25" TextColor="Black" />
+                                <Label Text="{Binding ShortName}" FontSize="18"/>
+                            </StackLayout>
+                        </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </RefreshView>
+</ContentPage>
