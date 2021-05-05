@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using DigitalJournal.Domain;
 using DigitalJournal.Moodle.Domain;
@@ -26,14 +27,21 @@ namespace DigitalJournal.Services
         {
             var module = await _moduleService.GetModuleAsync(moduleId);
 
-            var gradeForTask = module.Type switch
+            try
             {
-                nameof(TaskTypes.assign) => await _moodleGradeService.GetAssignmentGradeAsync(module.TypeId, userId),
-                nameof(TaskTypes.quiz) => await _moodleGradeService.GetQuizGradeAsync(module.TypeId, userId),
-                _ => null
-            };
-
-            return _mapper.Map<TaskResult>(gradeForTask);
+                var gradeForTask = module.Type switch
+                {
+                    nameof(TaskTypes.assign) =>
+                        await _moodleGradeService.GetAssignmentGradeAsync(module.TypeId, userId),
+                    nameof(TaskTypes.quiz) => await _moodleGradeService.GetQuizGradeAsync(module.TypeId, userId),
+                    _ => null
+                };
+                return gradeForTask != null ? _mapper.Map<TaskResult>(gradeForTask) : null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

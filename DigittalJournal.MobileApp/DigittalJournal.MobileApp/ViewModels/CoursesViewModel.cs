@@ -1,5 +1,4 @@
 ﻿using DigitalJournal.Domain;
-using DigittalJournal.MobileApp.Services;
 using MvvmHelpers.Commands;
 using System;
 using System.Linq;
@@ -8,40 +7,87 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Diagnostics;
+using DigittalJournal.MobileApp.Services.Interfaces;
+using DigittalJournal.MobileApp.Views;
+using DigittalJournal.MobileApp.Models;
 
 namespace DigittalJournal.MobileApp.ViewModels
 {
     public class CoursesViewModel : BaseViewModel
     {
-        public ObservableCollection<Course> Courses { get; set; }
+        private CourseModel _selectedCourse;
+
+        public ObservableCollection<CourseModel> Courses { get; set; }
+
         public AsyncCommand LoadCoursesCommand { get; }
-        public ICourseService CourseService;
+        public AsyncCommand<CourseModel> CourseTapped { get; }
+
+        private readonly ICourseService _courseService;
+        private readonly IModuleService _moduleService;
 
         public CoursesViewModel()
         {
-            Courses = new ObservableCollection<Course>();
+            Courses = new ObservableCollection<CourseModel>();
             LoadCoursesCommand = new AsyncCommand(ExecuteLoadCoursesCommand);
-            CourseService = DependencyService.Get<ICourseService>();
+
+            _courseService = DependencyService.Get<ICourseService>();
+            _moduleService = DependencyService.Get<IModuleService>();
+
+            CourseTapped = new AsyncCommand<CourseModel>(OnCourseSelected);
         }
 
-        internal void OnAppearing()
+        public CourseModel SelectedCourse
+        {
+            get => _selectedCourse;
+            set
+            {
+                SetProperty(ref _selectedCourse, value);
+            }
+        }
+
+        public void OnAppearing()
         {
             IsBusy = true;
+            SelectedCourse = null;
         }
 
         async Task ExecuteLoadCoursesCommand()
         {
             IsBusy = true;
+            Courses.Clear();
 
-                Courses.Clear();
-                var courses = await CourseService.GetCourses();
+            try
+            {
+                var courses = await _courseService.GetCourses();
 
                 foreach (var course in courses)
                 {
-                    Courses.Add(course);
-                }
+                    var modules = await _moduleService.GetCourseModules(course.Id);
 
-            IsBusy = false;
+                    Courses.Add(new CourseModel
+                    {
+                        Course = course,
+                        AmmountOfModules = modules.Count()
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        async Task OnCourseSelected(CourseModel course)
+        {
+            if (course == null)
+                return;
+
+            await Shell.Current.GoToAsync($"{nameof(ModulesPage)}?{nameof(ModulesViewModel.CourseId)}={course.Course.Id}");
         }
     }
 }

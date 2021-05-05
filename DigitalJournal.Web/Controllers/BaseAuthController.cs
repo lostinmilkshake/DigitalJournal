@@ -2,7 +2,6 @@
 using DigitalJournal.Services;
 using DigitalJournal.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using MoodleApiWrapper;
 
 namespace DigitalJournal.Web.Controllers
 {

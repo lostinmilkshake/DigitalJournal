@@ -13,8 +13,9 @@ namespace DigittalJournal.MobileApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             DependencyService.Register<CourseService>();
+            DependencyService.Register<ModuleService>();
+            DependencyService.Register<TaskResultService>();
             MainPage = new AppShell();
         }
 

@@ -13,7 +13,6 @@
       <ProjectReference Include="..\DigitalJournal.Moodle.Domain\DigitalJournal.Moodle.Domain.csproj" />
       <ProjectReference Include="..\DigitalJournal.Moodle.Services\DigitalJournal.Moodle.Services.csproj" />
       <ProjectReference Include="..\DigitalJournal.Services\DigitalJournal.Services.csproj" />
-      <ProjectReference Include="..\MoodleApiWrapper\MoodleApiWrapper.csproj" />
     </ItemGroup>
 
 </Project>
