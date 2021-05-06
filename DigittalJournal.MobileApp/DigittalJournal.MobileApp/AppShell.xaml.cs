@@ -11,7 +11,15 @@ namespace DigittalJournal.MobileApp
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            Routing.RegisterRoute(nameof(CoursesPage), typeof(CoursesPage));
+            Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
             Routing.RegisterRoute(nameof(ModulesPage), typeof(ModulesPage));
+        }
+
+        protected override async void OnAppearing()
+        {
+            await Shell.Current.GoToAsync("//LoginPage");
         }
 
     }

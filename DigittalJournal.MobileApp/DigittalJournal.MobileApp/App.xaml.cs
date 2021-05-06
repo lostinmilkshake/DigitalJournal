@@ -16,6 +16,7 @@ namespace DigittalJournal.MobileApp
             DependencyService.Register<CourseService>();
             DependencyService.Register<ModuleService>();
             DependencyService.Register<TaskResultService>();
+            DependencyService.RegisterSingleton(new AuthService());
             MainPage = new AppShell();
         }
 

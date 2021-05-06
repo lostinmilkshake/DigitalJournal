@@ -20,7 +20,7 @@ namespace DigittalJournal.MobileApp.Services
         public async Task<IEnumerable<Course>> GetCourses()
         {
             // TODO: Add getting user from auth service
-            var result = await _httpClient.GetStringAsync("/Course/user-courses/2");
+            var result = await _httpClient.GetStringAsync("/Course/user-courses");
 
             return JsonSerializer.Deserialize<IEnumerable<Course>>(result, _jsonSerializerOptions);
         }

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:DigitalJournal.Domain;assembly=DigitalJournal.Domain"
+             xmlns:model1="clr-namespace:DigittalJournal.MobileApp.Models"
+             xmlns:viewmodels="clr-namespace:DigittalJournal.MobileApp.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" x:DataType="viewmodels:ModulesViewModel"
+             x:Class="DigittalJournal.MobileApp.Views.ModulesPage"
+             Title="Modules">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:IsNotNullOrEmptyConverter x:Key="IsNotNullOrEmptyConverter" />
+            <xct:IsNullOrEmptyConverter x:Key="IsNullOrEmptyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <!--
+        <RefreshView x:DataType="local:ModulesViewModel" Command="{Binding }" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+    -->
+    <CollectionView
+        x:Name="ModulesListView"
+        ItemsSource="{Binding Modules}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Padding="5" x:DataType="model1:ModulesResults">
+                    <Frame IsClippedToBounds="True"
+                           HasShadow="True"
+                           Padding="0"
+                           BackgroundColor="White"
+                           CornerRadius="10">
+                        <Frame.Margin>
+                            <OnPlatform x:TypeArguments="Thickness"
+                                        Android="10, 3"
+                                        iOS="10, 3" />
+                        </Frame.Margin>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="15">
+                            <Label Text="{Binding Module.Name}" FontSize="25" TextColor="Black" />
+                            <Label Text="{Binding Module.MaxGrade}" FontSize="18" />
+                            <Label IsVisible="{Binding TaskResult, Converter={StaticResource IsNotNullOrEmptyConverter}}" FontSize="18">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{}Total Grade: {0}/{1}">
+                                        <Binding Path="TaskResult.Grade" />
+                                        <Binding Path="Module.MaxGrade" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                            <Label IsVisible="{Binding TaskResult, Converter={StaticResource IsNullOrEmptyConverter}}" FontSize="18">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{}Max Grade: {0}">
+                                        <Binding Path="Module.MaxGrade" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+    <!--
+        </RefreshView>
+        -->
+</ContentPage>

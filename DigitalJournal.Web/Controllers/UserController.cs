@@ -15,13 +15,20 @@ namespace DigitalJournal.Web.Controllers
         public UserController(IUserService userService) : base(userService) => _userService = userService;
 
         [HttpPost]
-        public async Task<IActionResult> LogInUser(string userName, string password)
+        public async Task<IActionResult> LogInUser([FromBody]AuthUserModel authUserModel)
         {
-            await AuthService.Login(userName, password);
+            await AuthService.Login(authUserModel.Username, authUserModel.Password);
 
             var user = await GetLoggedInUser();
 
             return user == null ? (IActionResult) NotFound() : Ok(user);
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> LoggoutUser()
+        {
+            AuthService.LoggedInUser = null;
+            return Ok();
         }
         
         [HttpGet("{userName}")]

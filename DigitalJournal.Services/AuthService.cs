@@ -10,7 +10,7 @@ namespace DigitalJournal.Services
     public static class AuthService  
     {
         private readonly static Moodle.Services.Interfaces.IAuthService _moodleAuthService;
-        private static string LoggedInUser { get; set; }
+        public static string LoggedInUser { get; set; }
         
         static AuthService()
         {

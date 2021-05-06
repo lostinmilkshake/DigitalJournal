@@ -29,18 +29,19 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <ShellItem>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </ShellItem>
+
     <TabBar>
         <ShellContent Title="Courses" Route="CoursesPage" ContentTemplate="{DataTemplate local:CoursesPage}"/>
-        <ShellContent Title="TBD"/>
+        <ShellContent Title="Settings" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"/>
     </TabBar>
 
     <!--
         If you would like to navigate to this content you can do so by calling
         await Shell.Current.GoToAsync("//LoginPage");
     -->
-    <TabBar>
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>
 
 
 </Shell>
