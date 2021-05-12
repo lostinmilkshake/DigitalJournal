@@ -14,15 +14,15 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.BackgroundColor" Value="White" />
+                <Setter Property="Shell.ForegroundColor" Value="Gray" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.DisabledColor" Value="Gray" />
+                <Setter Property="Shell.UnselectedColor" Value="DarkGray" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="DarkGray"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="Black"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -34,8 +34,18 @@
     </ShellItem>
 
     <TabBar>
-        <ShellContent Title="Courses" Route="CoursesPage" ContentTemplate="{DataTemplate local:CoursesPage}"/>
-        <ShellContent Title="Settings" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"/>
+        <Tab Title="Courses">
+            <Tab.Icon>
+                <FontImageSource Glyph="{StaticResource IconCourses}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent Route="CoursesPage" ContentTemplate="{DataTemplate local:CoursesPage}" Icon="Book"/>
+        </Tab>
+        <Tab Title="Settings">
+            <Tab.Icon>
+                <FontImageSource Glyph="{StaticResource IconSettings}" FontFamily="FA-S" />
+            </Tab.Icon>
+            <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"/>
+        </Tab>
     </TabBar>
 
     <!--

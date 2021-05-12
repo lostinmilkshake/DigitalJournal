@@ -20,6 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\fa-free-brands-regular-400.otf" />
+    <EmbeddedResource Include="Resources\Fonts\fa-free-solid-900.otf" />
+    <EmbeddedResource Include="Resources\Fonts\far-free-regular-400.otf" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Update="Views\CoursesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -29,5 +34,17 @@
     <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Font Awesome 5 Brands-Regular-400.otf" />
+    <None Remove="Font Awesome 5 Free-Regular-400.otf" />
+    <None Remove="Font Awesome 5 Free-Solid-900.otf" />
+    <None Remove="Resources\Fonts\fa-free-brands-regular-400.otf" />
+    <None Remove="Resources\Fonts\fa-free-solid-900.otf" />
+    <None Remove="Resources\Fonts\far-free-regular-400.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Fonts\" />
   </ItemGroup>
 </Project>
