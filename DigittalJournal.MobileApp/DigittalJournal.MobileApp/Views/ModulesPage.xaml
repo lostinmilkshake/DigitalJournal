@@ -5,6 +5,7 @@
              xmlns:model="clr-namespace:DigitalJournal.Domain;assembly=DigitalJournal.Domain"
              xmlns:model1="clr-namespace:DigittalJournal.MobileApp.Models"
              xmlns:viewmodels="clr-namespace:DigittalJournal.MobileApp.ViewModels"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit" x:DataType="viewmodels:ModulesViewModel"
              x:Class="DigittalJournal.MobileApp.Views.ModulesPage"
              Title="Modules">
@@ -23,36 +24,36 @@
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout Padding="5" x:DataType="model1:ModulesResults">
-                    <Frame IsClippedToBounds="True"
-                           HasShadow="True"
-                           Padding="0"
-                           BackgroundColor="White"
-                           CornerRadius="10">
-                        <Frame.Margin>
-                            <OnPlatform x:TypeArguments="Thickness"
-                                        Android="10, 3"
-                                        iOS="10, 3" />
-                        </Frame.Margin>
+                    <yummy:PancakeView x:Name="gradient" Margin="0,10,0,0" BackgroundGradientStartPoint="0,0"
+                               BackgroundGradientEndPoint="1,0"
+                               HorizontalOptions="FillAndExpand" CornerRadius="10">
+                        <yummy:PancakeView.BackgroundGradientStops>
+                            <yummy:GradientStopCollection>
+                                <yummy:GradientStop x:Name="backgroundGradientColor1" Color="{StaticResource PrimaryGraiedntColor}" Offset="0" />
+                                <yummy:GradientStop x:Name="backgroundGradientColor2" Color="{StaticResource SecondaryGraiedntColor}" Offset="1" />
+                            </yummy:GradientStopCollection>
+                        </yummy:PancakeView.BackgroundGradientStops>
                         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="15">
-                            <Label Text="{Binding Module.Name}" FontSize="25" TextColor="Black" />
-                            <Label Text="{Binding Module.MaxGrade}" FontSize="18" />
-                            <Label IsVisible="{Binding TaskResult, Converter={StaticResource IsNotNullOrEmptyConverter}}" FontSize="18">
-                                <Label.Text>
-                                    <MultiBinding StringFormat="{}Total Grade: {0}/{1}">
-                                        <Binding Path="TaskResult.Grade" />
-                                        <Binding Path="Module.MaxGrade" />
-                                    </MultiBinding>
-                                </Label.Text>
-                            </Label>
-                            <Label IsVisible="{Binding TaskResult, Converter={StaticResource IsNullOrEmptyConverter}}" FontSize="18">
-                                <Label.Text>
-                                    <MultiBinding StringFormat="{}Max Grade: {0}">
-                                        <Binding Path="Module.MaxGrade" />
-                                    </MultiBinding>
-                                </Label.Text>
-                            </Label>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="15">
+                                <Label Text="{Binding Module.Name}" FontSize="25" TextColor="White" />
+                                <Label TextColor="White" IsVisible="{Binding TaskResult, Converter={StaticResource IsNotNullOrEmptyConverter}}" FontSize="18">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{}Total Grade: {0}/{1}">
+                                            <Binding Path="TaskResult.Grade" />
+                                            <Binding Path="Module.MaxGrade" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                                <Label TextColor="White" IsVisible="{Binding TaskResult, Converter={StaticResource IsNullOrEmptyConverter}}" FontSize="18">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{}Max Grade: {0}">
+                                            <Binding Path="Module.MaxGrade" />
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                            </StackLayout>
                         </StackLayout>
-                    </Frame>
+                    </yummy:PancakeView>
                 </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>

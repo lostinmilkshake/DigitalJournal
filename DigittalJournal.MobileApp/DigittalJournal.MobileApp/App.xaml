@@ -10,8 +10,10 @@
             <x:String x:Key="IconCourses">&#xf02d;</x:String>
             <x:String x:Key="IconSettings">&#xf013;</x:String>
             <Color x:Key="Primary">Gray</Color>
+            <Color x:Key="PrimaryGraiedntColor">Red</Color>
+            <Color x:Key="SecondaryGraiedntColor">Orange</Color>
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">

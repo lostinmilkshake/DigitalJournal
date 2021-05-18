@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DigittalJournal.MobileApp.ViewModels"
              xmlns:model="clr-namespace:DigitalJournal.Domain;assembly=DigitalJournal.Domain" xmlns:model1="clr-namespace:DigittalJournal.MobileApp.Models"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="DigittalJournal.MobileApp.Views.CoursesPage"
              Title="Courses">
     <ContentPage.BindingContext>
@@ -19,22 +20,20 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="model1:CourseModel">
-                        <Frame IsClippedToBounds="True"
-                               HasShadow="True"
-                               Padding="0"
-                               BackgroundColor="White"
-                               CornerRadius="8">
-                            <Frame.Margin>
-                                <OnPlatform x:TypeArguments="Thickness"
-                                            Android="10"
-                                            iOS="10" />
-                            </Frame.Margin>
+                        <yummy:PancakeView x:Name="gradient" Margin="0,10,0,0" BackgroundGradientStartPoint="0,0"
+                               BackgroundGradientEndPoint="1,0"
+                               HorizontalOptions="FillAndExpand" CornerRadius="10">
+                            <yummy:PancakeView.BackgroundGradientStops>
+                                <yummy:GradientStopCollection>
+                                    <yummy:GradientStop x:Name="backgroundGradientColor1" Color="{StaticResource PrimaryGraiedntColor}" Offset="0" />
+                                    <yummy:GradientStop x:Name="backgroundGradientColor2" Color="{StaticResource SecondaryGraiedntColor}" Offset="1" />
+                                </yummy:GradientStopCollection>
+                            </yummy:PancakeView.BackgroundGradientStops>
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="15">
-                                <Label Text="{Binding Course.FullName}" FontSize="25" TextColor="Black" FontFamily="NotoSans" />
-                                <Label Text="{Binding AmmountOfModules, StringFormat='Ammount of modules: {0}'}" FontSize="18">
-                                </Label>
+                                <Label Text="{Binding Course.FullName}" FontSize="25" TextColor="White" FontFamily="NotoSans" />
+                                <Label Text="{Binding AmmountOfModules, StringFormat='Ammount of modules: {0}'}" FontSize="18" TextColor="White" />
                             </StackLayout>
-                        </Frame>
+                        </yummy:PancakeView>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer
                                 Command="{Binding 
