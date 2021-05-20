@@ -9,7 +9,7 @@ namespace DigittalJournal.MobileApp.Services
     public class BaseService
     {
         // TODO: Change BaseUrl
-        private string BaseUrl = "http://a5fb0825b940.ngrok.io/";
+        private string BaseUrl = "http://3c063891d983.ngrok.io/";
 
         protected readonly HttpClient _httpClient;
         protected readonly JsonSerializerOptions _jsonSerializerOptions;
